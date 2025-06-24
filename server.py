@@ -1,4 +1,5 @@
-# server.py
-from mcp.server.fastmcp import FastMCP
-from db import SessionLocal
-from models import Registro, Base
+from mcp_instance import mcp
+import tool
+
+if __name__ == "__main__":
+    mcp.run()

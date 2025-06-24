@@ -1,5 +1,8 @@
-# Crear
-@mcp.tool(title="Agregar registro")
+from mcp_instance import mcp
+from db import SessionLocal
+from models import Registro
+
+@mcp.tool()
 def agregar(texto: str) -> str:
     with SessionLocal() as session:
         reg = Registro(texto=texto)
@@ -7,17 +10,13 @@ def agregar(texto: str) -> str:
         session.commit()
         return f"Registro {reg.id} agregado"
 
-# Consultar
-@mcp.tool(title="Obtener registro")
+@mcp.tool()
 def obtener(id: int) -> str:
     with SessionLocal() as session:
         reg = session.get(Registro, id)
-        if reg:
-            return reg.texto
-        return "No encontrado"
+        return reg.texto if reg else "No encontrado"
 
-# Eliminar
-@mcp.tool(title="Eliminar registro")
+@mcp.tool()
 def eliminar(id: int) -> str:
     with SessionLocal() as session:
         reg = session.get(Registro, id)

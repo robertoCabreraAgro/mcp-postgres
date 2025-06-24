@@ -1,7 +1,12 @@
-# db.py
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import Base
 
-engine = create_engine("postgresql+psycopg2://usuario:password@localhost/mi_db")
-SessionLocal = sessionmaker(bind=engine)
+DATABASE = os.getenv("DATABASE_URL", "sqlite:///db.sqlite3")
+
+engine = create_engine(DATABASE, future=True)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+def init_db():
+    Base.metadata.create_all(engine)
