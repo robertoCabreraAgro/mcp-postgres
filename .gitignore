@@ -1,0 +1,33 @@
+# Archivos de cache y bytecode de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Directorios de entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# Archivos de configuración de IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos de base de datos SQLite
+*.sqlite3
+*.db
+
+# Archivos de distribución/paquetes
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Archivos de testing
+.pytest_cache/
+.tox/
+htmlcov/
+.coverage

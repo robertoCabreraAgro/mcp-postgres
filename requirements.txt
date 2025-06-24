@@ -1,5 +1,8 @@
 mcp[cli] @ git+https://github.com/modelcontextprotocol/python-sdk.git@main
+fastapi
+uvicorn
 sqlalchemy
 psycopg2-binary
 openai
 python-dotenv
+openai>=1.0.0
